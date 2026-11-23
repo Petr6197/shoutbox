@@ -37,7 +37,11 @@ function App() {
   }
 
   useEffect(() => {
-    loadMessages()
+    loadMessages() // hned při otevření stránky
+
+    const id = setInterval(loadMessages, 5000) // pak každých 5000 ms
+
+    return () => clearInterval(id) // úklid
   }, [])
 
   return (
